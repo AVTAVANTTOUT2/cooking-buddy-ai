@@ -1,0 +1,8 @@
+@if (selectedName) {
+  <p>Selected recipe: {{ selectedName }}</p>
+}
+<div class="grid">
+  @for (recipe of recipes; track recipe.id) {
+    <app-recipe-card [recipe]="recipe" (selected)="open($event)" />
+  }
+</div>
