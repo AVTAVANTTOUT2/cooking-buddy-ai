@@ -3,14 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node scripts/dev.mjs",
-    "start:api": "node server/index.mjs",
-    "start:web": "ng serve --host 127.0.0.1 --port 4200",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "test:api": "node --test server/*.test.mjs",
-    "test:all": "npm run test:api && npm test -- --watch=false"
+    "test": "ng test"
   },
   "private": true,
   "packageManager": "npm@11.20.0",
