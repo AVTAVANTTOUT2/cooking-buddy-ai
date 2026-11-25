@@ -24,4 +24,28 @@ describe('RecipeCard', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('emits the recipe id through favoriteToggled without selecting the recipe', () => {
+    const favoriteToggled = vi.fn();
+    const selected = vi.fn();
+    component.favoriteToggled.subscribe(favoriteToggled);
+    component.selected.subscribe(selected);
+
+    fixture.nativeElement.querySelector('button.favorite').click();
+
+    expect(favoriteToggled).toHaveBeenCalledExactlyOnceWith('test-soupe');
+    expect(selected).not.toHaveBeenCalled();
+  });
+
+  it('still selects the recipe from the main card button without toggling favorites', () => {
+    const selected = vi.fn();
+    const favoriteToggled = vi.fn();
+    component.selected.subscribe(selected);
+    component.favoriteToggled.subscribe(favoriteToggled);
+
+    fixture.nativeElement.querySelector('button.recipe-select').click();
+
+    expect(selected).toHaveBeenCalledExactlyOnceWith(component.recipe());
+    expect(favoriteToggled).not.toHaveBeenCalled();
+  });
 });

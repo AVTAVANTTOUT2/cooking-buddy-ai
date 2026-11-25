@@ -8,7 +8,12 @@
 <app-panel heading="Recipes">
   <div class="grid">
     @for (recipe of recipes; track recipe.id) {
-      <app-recipe-card [recipe]="recipe" (selected)="open($event)" />
+      <app-recipe-card
+        [recipe]="recipe"
+        [isFavorite]="favorites.isFavorite(recipe.id)"
+        (selected)="open($event)"
+        (favoriteToggled)="favorites.toggleFavorite($event)"
+      />
     }
   </div>
 </app-panel>

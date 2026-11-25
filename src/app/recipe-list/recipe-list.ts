@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FavoritesService } from '../favorites.service';
 import { CategoryList } from '../category-list/category-list';
 import { Panel } from '../panel/panel';
 import { RecipeCard } from '../recipe-card/recipe-card';
@@ -11,6 +12,7 @@ import { Recipe, RECIPES } from '../recipe';
   styleUrl: './recipe-list.css',
 })
 export class RecipeList {
+  protected readonly favorites = inject(FavoritesService);
   protected readonly recipes = RECIPES;
   protected readonly categories = [...new Set(RECIPES.map((recipe) => recipe.category))];
   protected selectedName = '';

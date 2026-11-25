@@ -1,5 +1,16 @@
-<button class="card" type="button" (click)="select()">
-  <img [src]="recipe().thumbnail" [alt]="recipe().name" />
-  <p class="category">{{ recipe().category | uppercase }}</p>
-  <h3 [title]="recipe().name">{{ recipe().name | truncate }}</h3>
-</button>
+<article class="card">
+  <button class="recipe-select" type="button" (click)="select()" [attr.aria-label]="recipe().name">
+    <img [src]="recipe().thumbnail" [alt]="recipe().name" />
+    <p class="category">{{ recipe().category | uppercase }}</p>
+    <h3 [title]="recipe().name">{{ recipe().name | truncate }}</h3>
+  </button>
+  <button
+    class="favorite"
+    type="button"
+    [attr.aria-label]="'Favorite : ' + recipe().name"
+    [attr.aria-pressed]="isFavorite()"
+    (click)="toggleFavorite()"
+  >
+    Favorite
+  </button>
+</article>

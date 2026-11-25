@@ -11,9 +11,15 @@ import { TruncatePipe } from '../truncate-pipe';
 })
 export class RecipeCard {
   readonly recipe = input.required<Recipe>();
+  readonly isFavorite = input(false);
   readonly selected = output<Recipe>();
+  readonly favoriteToggled = output<string>();
 
   protected select() {
     this.selected.emit(this.recipe());
+  }
+
+  protected toggleFavorite() {
+    this.favoriteToggled.emit(this.recipe().id);
   }
 }

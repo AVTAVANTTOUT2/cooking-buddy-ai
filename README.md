@@ -2,6 +2,14 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
 
+## Favoris
+
+Le bouton « Favorite » de chaque carte émet `favoriteToggled` avec l’id de la recette.
+La liste transmet cet événement à `FavoritesService`, partagé avec le header.
+Le service conserve les ids dans un signal et calcule `favoriteCount` avec `computed`.
+Un clic ajoute la recette, un second la retire : le compteur passe de 0 à 1 puis à 0.
+Les favoris restent en mémoire jusqu’au rechargement de la page.
+
 ## Development server
 
 To start a local development server, run:

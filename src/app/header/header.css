@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+.favorite-count {
+  padding: 8px 14px;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  white-space: nowrap;
+}

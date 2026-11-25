@@ -1,6 +1,55 @@
+:host {
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: default;
+}
+
+.recipe-select {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .category {
   margin: 12px 12px 0;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   color: #9a3412;
+}
+
+.favorite {
+  align-self: flex-start;
+  margin: auto 12px 12px;
+  padding: 8px 14px;
+  border: 1px solid #9a3412;
+  border-radius: 6px;
+  background: #fff;
+  color: #9a3412;
+  font: inherit;
+  cursor: pointer;
+}
+
+.favorite[aria-pressed='true'] {
+  background: #9a3412;
+  color: #fff;
+}
+
+button:focus-visible {
+  outline: 3px solid #9a3412;
+  outline-offset: 3px;
+}
+
+.recipe-select:focus-visible {
+  outline-offset: -3px;
 }
