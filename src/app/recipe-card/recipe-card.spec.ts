@@ -11,6 +11,12 @@ describe('RecipeCard', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(RecipeCard);
+    fixture.componentRef.setInput('recipe', {
+      id: 'test-soupe',
+      name: 'Soupe de légumes',
+      category: 'Vegetarian',
+      thumbnail: '/test-recipe.jpg',
+    });
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

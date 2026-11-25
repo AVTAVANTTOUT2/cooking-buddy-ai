@@ -1,0 +1,5 @@
+<nav class="categories" aria-label="Categories">
+  @for (category of categories(); track category) {
+    <button type="button" (click)="categorySelected.emit(category)">{{ category }}</button>
+  }
+</nav>

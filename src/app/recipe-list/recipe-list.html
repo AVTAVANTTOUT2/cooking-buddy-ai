@@ -1,8 +1,14 @@
+<app-category-list [categories]="categories" (categorySelected)="selectCategory($event)" />
+@if (selectedCategory) {
+  <p>Selected category: {{ selectedCategory }}</p>
+}
 @if (selectedName) {
   <p>Selected recipe: {{ selectedName }}</p>
 }
-<div class="grid">
-  @for (recipe of recipes; track recipe.id) {
-    <app-recipe-card [recipe]="recipe" (selected)="open($event)" />
-  }
-</div>
+<app-panel heading="Recipes">
+  <div class="grid">
+    @for (recipe of recipes; track recipe.id) {
+      <app-recipe-card [recipe]="recipe" (selected)="open($event)" />
+    }
+  </div>
+</app-panel>
